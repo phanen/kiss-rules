@@ -97,7 +97,12 @@ const RULES_MAP = {
   "github.com": {
     autoScan: `false`,
     selector: `h1, h2, h3, h4, h5, h6, .markdown-body li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio>div, [data-testid="results-list"] .search-match, .Subhead-description, [class^="prc-SelectPanel-Subtitle-"], [class^="prc-ActionList-ItemLabel-"], [role="dialog"] .overflow-auto, .h4, .repos-list-description, .discussion-title, [class*="PinnedIssue-module__Link"] span, .js-wiki-sidebar-page-container :is(.Truncate-text, .Link--primary), .markdown-body td:not(:first-child)`,
-    ignoreSelector: `button, p.pinned-item-desc+p`,
+    ignoreSelector: `button, p.pinned-item-desc+p, .blob-wrapper, .highlight, .js-file-line-container`,
+  },
+  "codeberg.org": {
+    autoScan: `false`,
+    selector: `h1, h2, h3, h4, h5, h6, .render-content li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio, .search-match, .issue-title, .comment-body, .markdown-body li, .markdown-body p, .description, .content, .message`,
+    ignoreSelector: `button, .ui.button, .octicon`,
   },
   "*.notion.site": {
     ignoreSelector: ".notion-inline-code-container",
