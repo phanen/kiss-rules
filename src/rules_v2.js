@@ -164,6 +164,12 @@ document.addEventListener('mouseup', (e) => {
   "store.steampowered.com": {
     ignoreSelector: `+#footer, +svg, +.bb_img_ctn, +#game_area_legal`,
   },
+  "www.reddit.com, new.reddit.com, sh.reddit.com": {
+    autoScan: `false`,
+    selector: `[id^="post-title"], [data-testid="post-title-text"], recent-posts h3, aside :is(span:has(>h2), p), [slot="text-body"] :is(h1, h2, h3, h4, h5, h6, li, p, dd, blockquote), shreddit-comment :is([slot="comment"], .md) :is(p, li, h1, h2, h3, h4, h5, h6, blockquote), shreddit-subreddit-header >>> :is(#title, #description)`,
+    keepSelector: `code, img, svg, pre, a:has(code)`,
+    ignoreSelector: `button, input, textarea, form, [contenteditable="true"], [data-lexical-editor="true"], [slot="placeholder-html"], [name="recaptchaToken"], .notranslate, [slot="rte"], faceplate-composer, shreddit-composer, [data-testid="comment-submission-form"], [aria-placeholder="Join the conversation"]`,
+  },
   "old.reddit.com": {
     selector: `.usertext`,
     ignoreSelector: `.tabmenu, #sr-header-area, .tagline, .flat-list, .author, code`,
