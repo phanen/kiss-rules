@@ -61,9 +61,10 @@
   },
   {
     "autoScan": "false",
-    "selector": ".markdown-body, [class*='DirectoryRichtextContent-module__SharedMarkdownContent']",
+    "selector": "[data-kiss-readme], .markdown-body, [class*='DirectoryRichtextContent-module__SharedMarkdownContent'], [class*='MarkdownContent'], article",
     "keepSelector": "code, img, svg, a:has(code)",
     "ignoreSelector": "button, .blob-wrapper, .highlight, .js-file-line-container, .Box-header, [class*='DiffFileHeader']",
+    "injectJs": "(function(){var r=document.getElementById('repo-content-pjax-container');if(!r)return;function m(){var e=r.querySelector(\".markdown-body,[class*='SharedMarkdownContent']\");if(!e){var a=document.getElementById('readme');if(a){var s=a.nextElementSibling;while(s&&s.textContent.length<300)s=s.nextElementSibling;if(s)e=s;}}if(e&&!e.dataset.kissReadme){e.dataset.kissReadme='1';return true;}return false;}if(!m()){var o=new MutationObserver(function(){if(m())o.disconnect();});o.observe(r,{childList:true,subtree:true});setTimeout(function(){o.disconnect();},8000);}})();",
     "pattern": "github.com/*",
     "transOpen": "true"
   },
