@@ -188,6 +188,33 @@ document.addEventListener('mouseup', (e) => {
   "search.brave.com/ask": {
     ignoreSelector: `.ask-left, .ask-center-footer, #tap-input-field`,
   },
+  "lists.gnu.org/archive/html": {
+    selector: "pre",
+    keepSelector: "a",
+    ignoreSelector: "h2, table, form, small, ul, hr, center",
+    autoScan: "false",
+    transStartHook: `({text}) => ({ text: text.replace(/\n{3,}/g, "\n\n") })`,
+  },
+  "lore.kernel.org": {
+    selector: "pre",
+    keepSelector: "a, b",
+    autoScan: "false",
+    injectJs: `document.querySelectorAll('body > pre').forEach(pre => {
+    const t = pre.textContent.trim();
+    if (t.startsWith('end of thread') || t.startsWith('This is a public inbox')) {
+        pre.setAttribute('data-kiss-skip', '');
+    }
+});`,
+    ignoreSelector: "[data-kiss-skip], form > pre",
+    transStartHook: `({text}) => ({ text: text.replace(/\n{3,}/g, "\n\n") })`,
+  },
+  "www.mail-archive.com": {
+    selector: "pre",
+    keepSelector: "a",
+    ignoreSelector: "h1, h2, ul, aside, nav, form, header, footer",
+    autoScan: "false",
+    transStartHook: `({text}) => ({ text: text.replace(/\n{3,}/g, "\n\n") })`,
+  },
 };
 
 const rules = Object.entries(RULES_MAP).map(([pattern, rule]) => ({
