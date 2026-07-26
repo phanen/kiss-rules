@@ -104,6 +104,13 @@ const RULES_MAP = {
     selector: `h1, h2, h3, h4, h5, h6, .markdown-body li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio>div, [data-testid="results-list"] .search-match, .Subhead-description, [class^="prc-SelectPanel-Subtitle-"], [class^="prc-ActionList-ItemLabel-"], [role="dialog"] .overflow-auto, .h4, .repos-list-description, .discussion-title, [class*="PinnedIssue-module__Link"] span, .js-wiki-sidebar-page-container :is(.Truncate-text, .Link--primary), .markdown-body td:not(:first-child)`,
     ignoreSelector: `button, p.pinned-item-desc+p, .blob-wrapper, .highlight, .js-file-line-container, .Box-header.f6, [class^="DiffFileHeader-module__file-path-section"]`,
   },
+  "codeberg.org/*/pulls/*": {
+    autoScan: "false",
+    selector: ".comment-body",
+    keepSelector: "code, pre, img, svg",
+    ignoreSelector:
+      "button, form, input, textarea, [contenteditable], .reaction, .reaction-count, .commit-body, nav, header, footer, aside, .ui.dropdown, .menu, .diff-stats-bar, .timeline-item.commits-list, .timeline-item.event, .issue-title, .issue-title-header, .issue-title-meta, .secondary-nav, .ref-issue",
+  },
   "codeberg.org": {
     autoScan: `false`,
     selector: `h1, h2, h3, h4, h5, h6, .render-content li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio, .search-match, .issue-title, .comment-body, .markdown-body li, .markdown-body p, .description, .content, .message`,
