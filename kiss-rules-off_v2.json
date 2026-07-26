@@ -68,6 +68,14 @@
   },
   {
     "autoScan": "false",
+    "selector": ".comment-body",
+    "keepSelector": "code, pre, img, svg",
+    "ignoreSelector": "button, form, input, textarea, [contenteditable], .reaction, .reaction-count, .commit-body, nav, header, footer, aside, .ui.dropdown, .menu, .diff-stats-bar, .timeline-item.commits-list, .timeline-item.event, .issue-title, .issue-title-header, .issue-title-meta, .secondary-nav, .ref-issue",
+    "pattern": "codeberg.org/*/pulls/*",
+    "transOpen": "false"
+  },
+  {
+    "autoScan": "false",
     "selector": "h1, h2, h3, h4, h5, h6, .render-content li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio, .search-match, .issue-title, .comment-body, .markdown-body li, .markdown-body p, .description, .content, .message",
     "ignoreSelector": "button, .ui.button, .octicon",
     "pattern": "codeberg.org",
