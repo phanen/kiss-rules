@@ -34,12 +34,13 @@
     "transOpen": "false"
   },
   {
-    "rootsSelector": "ytd-page-manager",
-    "ignoreSelector": "aside, button, footer, form, header, pre, mark, nav, #player, .caption-window, .ytp-settings-menu, #kiss-youtube-subtitle-list-container",
+    "rootsSelector": "ytd-page-manager, yt-lockup-view-model, ytm-shorts-lockup-view-model",
+    "ignoreSelector": "aside, button, footer, form, header, pre, mark, nav, #player, .caption-window, .ytp-settings-menu, #kiss-youtube-subtitle-list-container, yt-pdg-comment-chip-renderer",
+    "blockSelector": "yt-lockup-view-model, ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2, ytd-post-renderer",
     "selectStyle": "-webkit-line-clamp: unset; max-height: none; height: auto;",
     "parentStyle": "-webkit-line-clamp: unset; max-height: none; height: auto;",
     "grandStyle": "-webkit-line-clamp: unset; max-height: none; height: auto;",
-    "injectCss": ".ytLockupMetadataViewModelStandard.ytLockupMetadataViewModelRichGridLegacyTypography .ytLockupMetadataViewModelTitle {\n  -webkit-line-clamp: unset;\n  max-height: none;\n  height: auto;\n}",
+    "injectCss": ".ytLockupMetadataViewModelStandard.ytLockupMetadataViewModelRichGridLegacyTypography .ytLockupMetadataViewModelTitle {\n  -webkit-line-clamp: unset;\n  max-height: none;\n  height: auto;\n}\n\n.yt-horizontal-list-renderer+kiss-translator {\n  display: none;\n}",
     "pattern": "www.youtube.com",
     "transOpen": "false"
   },
@@ -61,8 +62,15 @@
   {
     "autoScan": "false",
     "selector": "h1, h2, h3, h4, h5, h6, .markdown-body li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio>div, [data-testid=\"results-list\"] .search-match, .Subhead-description, [class^=\"prc-SelectPanel-Subtitle-\"], [class^=\"prc-ActionList-ItemLabel-\"], [role=\"dialog\"] .overflow-auto, .h4, .repos-list-description, .discussion-title, [class*=\"PinnedIssue-module__Link\"] span, .js-wiki-sidebar-page-container :is(.Truncate-text, .Link--primary), .markdown-body td:not(:first-child)",
-    "ignoreSelector": "button, p.pinned-item-desc+p",
+    "ignoreSelector": "button, p.pinned-item-desc+p, .blob-wrapper, .highlight, .js-file-line-container, .Box-header.f6, [class^=\"DiffFileHeader-module__file-path-section\"]",
     "pattern": "github.com",
+    "transOpen": "false"
+  },
+  {
+    "autoScan": "false",
+    "selector": "h1, h2, h3, h4, h5, h6, .render-content li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio, .search-match, .issue-title, .comment-body, .markdown-body li, .markdown-body p, .description, .content, .message",
+    "ignoreSelector": "button, .ui.button, .octicon",
+    "pattern": "codeberg.org",
     "transOpen": "false"
   },
   {
@@ -88,6 +96,14 @@
     "transOpen": "false"
   },
   {
+    "autoScan": "false",
+    "selector": "[id^=\"post-title\"], [data-testid=\"post-title-text\"], recent-posts h3, aside :is(span:has(>h2), p), [slot=\"text-body\"] :is(h1, h2, h3, h4, h5, h6, li, p, dd, blockquote), shreddit-comment :is([slot=\"comment\"], .md) :is(p, li, h1, h2, h3, h4, h5, h6, blockquote), shreddit-subreddit-header >>> :is(#title, #description)",
+    "keepSelector": "code, img, svg, pre, a:has(code)",
+    "ignoreSelector": "button, input, textarea, form, [contenteditable=\"true\"], [data-lexical-editor=\"true\"], [slot=\"placeholder-html\"], [name=\"recaptchaToken\"], .notranslate, [slot=\"rte\"], faceplate-composer, shreddit-composer, [data-testid=\"comment-submission-form\"], [aria-placeholder=\"Join the conversation\"]",
+    "pattern": "www.reddit.com, new.reddit.com, sh.reddit.com",
+    "transOpen": "false"
+  },
+  {
     "selector": ".usertext",
     "ignoreSelector": ".tabmenu, #sr-header-area, .tagline, .flat-list, .author, code",
     "pattern": "old.reddit.com",
@@ -99,6 +115,13 @@
     "transOpen": "false"
   },
   {
+    "selectStyle": "-webkit-line-clamp: unset; max-height: none; height: auto;",
+    "parentStyle": "-webkit-line-clamp: unset; max-height: none; height: auto;",
+    "grandStyle": "-webkit-line-clamp: unset; max-height: none; height: auto;",
+    "pattern": "youtrack.jetbrains.com",
+    "transOpen": "false"
+  },
+  {
     "rootsSelector": ".title",
     "pattern": "liveuamap.com",
     "transOpen": "false"
@@ -106,6 +129,34 @@
   {
     "ignoreSelector": ".ask-left, .ask-center-footer, #tap-input-field",
     "pattern": "search.brave.com/ask",
+    "transOpen": "false"
+  },
+  {
+    "selector": "pre",
+    "keepSelector": "a",
+    "ignoreSelector": "h2, table, form, small, ul, hr, center",
+    "autoScan": "false",
+    "transStartHook": "({text}) => ({ text: text.replace(/\n{3,}/g, \"\n\n\") })",
+    "pattern": "lists.gnu.org/archive/html",
+    "transOpen": "false"
+  },
+  {
+    "selector": "pre",
+    "keepSelector": "a, b",
+    "autoScan": "false",
+    "injectJs": "document.querySelectorAll('body > pre').forEach(pre => {\n    const t = pre.textContent.trim();\n    if (t.startsWith('end of thread') || t.startsWith('This is a public inbox')) {\n        pre.setAttribute('data-kiss-skip', '');\n    }\n});",
+    "ignoreSelector": "[data-kiss-skip], form > pre",
+    "transStartHook": "({text}) => ({ text: text.replace(/\n{3,}/g, \"\n\n\") })",
+    "pattern": "lore.kernel.org",
+    "transOpen": "false"
+  },
+  {
+    "selector": "pre",
+    "keepSelector": "a",
+    "ignoreSelector": "h1, h2, ul, aside, nav, form, header, footer",
+    "autoScan": "false",
+    "transStartHook": "({text}) => ({ text: text.replace(/\n{3,}/g, \"\n\n\") })",
+    "pattern": "www.mail-archive.com",
     "transOpen": "false"
   }
 ]
