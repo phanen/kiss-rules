@@ -53,14 +53,6 @@
   },
   {
     "autoScan": "false",
-    "rootsSelector": "#repo-content-pjax-container",
-    "selector": ".markdown-body, [class*='DirectoryRichtextContent-module__SharedMarkdownContent'], [class*='SharedMarkdownContent'], [class*='MarkdownContent'], [class*='Readme'], [data-hpc], article",
-    "keepSelector": "code, img, svg, a:has(code)",
-    "ignoreSelector": "button, .blob-wrapper, .highlight, .js-file-line-container, .Box-header, [class*='DiffFileHeader'], nav, [role='navigation'], [role='banner'], [class*='UnderlineNav'], [class*='Sidebar'], [class*='Breadcrumb'], [class*='Header'], aside, header, footer",
-    "pattern": "github.com/*"
-  },
-  {
-    "autoScan": "false",
     "selector": "h1, h2, h3, h4, h5, h6, .markdown-body li, p, dd, blockquote, figcaption, label, legend, .user-profile-bio>div, [data-testid=\"results-list\"] .search-match, .Subhead-description, [class^=\"prc-SelectPanel-Subtitle-\"], [class^=\"prc-ActionList-ItemLabel-\"], [role=\"dialog\"] .overflow-auto, .h4, .repos-list-description, .discussion-title, [class*=\"PinnedIssue-module__Link\"] span, .js-wiki-sidebar-page-container :is(.Truncate-text, .Link--primary), .markdown-body td:not(:first-child)",
     "ignoreSelector": "button, p.pinned-item-desc+p, .blob-wrapper, .highlight, .js-file-line-container, .Box-header.f6, [class^=\"DiffFileHeader-module__file-path-section\"]",
     "pattern": "github.com"
