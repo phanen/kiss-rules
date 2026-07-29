@@ -222,6 +222,12 @@ document.addEventListener('mouseup', (e) => {
     autoScan: "false",
     transStartHook: `({text}) => ({ text: text.replace(/\n{3,}/g, "\n\n") })`,
   },
+  "sw.kovidgoyal.net": {
+    autoScan: "false",
+    selector: "p, h1, h2, h3, h4, h5, h6, li, blockquote, dd, dl, dt, table, td, th, tr, thead, tbody, tfoot, caption, figcaption",
+    keepSelector: "code, pre, img, svg",
+    ignoreSelector: ".container.docutils.table-wrapper",
+  },
 };
 
 const rules = Object.entries(RULES_MAP).map(([pattern, rule]) => ({
